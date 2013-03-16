@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <title>
+    {% if page.title %}
+      {{ page.title }} &ndash;
+    {% endif %}
+    {{ site.name }}
+    </title>
+
+    <meta name="author" content="{{ site.name }}" />
+    <meta name="description" content="{{ site.description }}" />
+
+    <link rel="alternate" type="application/rss+xml" href="/atom.xml" />
+
+    <link rel="stylesheet" href="/css/base.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="/css/pygments.css" type="text/css" />
+</head>
+
+<body>
+    <header class="header">
+        <a href="/" class="photo">
+            <img src="{{ site.gravatar_url }}?s=150" height="100" width="100" class="avatar" />
+        </a>
+
+        <section class="name">
+            <a href="/">{{ site.name }}</a>
+        </section>
+
+        <section class="meta">
+            <a href="https://github.com/{{ site.github }}" target="_blank"><img src="/images/github.png" /></a>
+            <a href="https://twitter.com/{{ site.twitter }}" target="_blank"><img src="/images/twitter.png"></a>
+            <a href="/atom.xml"><img src="/images/rss.png" /></a>
+        </section>
+
+        <!-- <section class="nav">
+            <ul>
+                <li><a href="/about.html">About</a></li>
+            </ul>
+        </section> -->
+    </header>
+
+    {{ content }}
+</body>
+
+</html>

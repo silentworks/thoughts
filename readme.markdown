@@ -1,0 +1,1 @@
+# Thoughts and Pattens of a Developer
