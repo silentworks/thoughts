@@ -5,7 +5,7 @@ category: posts
 comments: true
 ---
 
-This article is not about building the next [RAD][rad] web app, if you are after that
+This article is not about building the next [rad][rad] web app, if you are after that
 then you might want to go check out some of [Drew Wilson's][dw] work, otherwise
 continue reading.
 
