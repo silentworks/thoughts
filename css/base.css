@@ -88,6 +88,11 @@ p {
   font-size: 1.3em;
   font-weight: normal;
 }
+.content .listing a:hover {
+  background: none;
+  border: none;
+  color: #3389c5;
+}
 .content .listing .post-date {
   color: #999999;
   position: absolute;
