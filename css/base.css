@@ -7,6 +7,9 @@ a {
 p {
   color: #333;
 }
+img {
+  max-width: 100%;
+}
 .header {
   background-color: #F7F7F7;
   position: fixed;
@@ -153,4 +156,34 @@ p {
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   border-radius: 100px;
+}
+@media screen and (max-width: 800px) {
+  body {
+    margin: 0;
+  }
+  .header {
+    top: 0;
+    left: 0;
+    bottom: auto;
+    padding: 6px 0 0;
+    position: relative;
+    width: 100%;
+  }
+  .header .photo {
+    float: left;
+    margin: 0 20px 10px;
+  }
+  .content {
+    margin: 8% 0 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .header .name,
+  .header .meta {
+    min-width: 519px;
+  }
+  .content {
+    min-width: 519px;
+  }
 }
