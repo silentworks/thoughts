@@ -47,7 +47,7 @@ Let this year be a change of approach to open source projects that you use, lets
 communities, documentations, designs, etc and contribute to open source without the need for a twitter
 rant.
 
-> My initaitive is Build Awesome.
+> My initiative is Build Awesome.
 
 If you have any questions, follow and ping me on Twitter- I'm [@silentworks][twitter].
 
