@@ -194,26 +194,17 @@ img {
 
 @media screen and (max-width: 640px) {
     .header {
-        .name, .meta {
-            min-width: 519px;
-        } 
-    }
-    .content {
-        min-width: 519px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .header {
+        width: inherit;
         .photo {
             margin: 0 0 10px 20px;
         }
         .name, .meta {
-            min-width: 440px;
+            min-width: auto;
         } 
     }
     .content {
-        min-width: 440px;
+        min-width: auto;
+        width: inherit;
         .wrapper {
             margin: 0;
         }
