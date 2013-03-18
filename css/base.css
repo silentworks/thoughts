@@ -187,3 +187,18 @@ img {
     min-width: 519px;
   }
 }
+@media screen and (max-width: 480px) {
+  .header .photo {
+    margin: 0 0 10px 20px;
+  }
+  .header .name,
+  .header .meta {
+    min-width: 440px;
+  }
+  .content {
+    min-width: 440px;
+  }
+  .content .wrapper {
+    margin: 0;
+  }
+}
