@@ -5,7 +5,7 @@ category: posts
 comments: true
 ---
 
-Some of you might have seen my many rants on Twitter about the state of MODX, I have grown weary
+Some of you might have seen my many rants on Twitter about the state of __MODX__, I have grown weary
 and have now decided to __fork__ it. I have decided to also name my __fork__ "MODX", yes this is
 for real, you don't believe me. [Proof right here][proof].
 
@@ -45,11 +45,11 @@ when will the next major version be out? I have investigated this and have a via
 TIME TRAVEL
 
 Yes I am being real, this has been made possible by [this guy][thisguy], you don't believe me? go 
-checkout [this extra][thisextra] he created before MODX even began.
+checkout [this extra][thisextra] he created before __MODX__ even began.
 
 I think the current release cycle (if we can call it that) is busted. You have to wait around 3 months
 per minor release and 3 years per major release. I have adopted the Chrome release cycle for my __MODX__,
-yes that means you should have MODX 5 before [Drupal 8][drupal] is ever released.
+yes that means you should have __MODX 5__ before [Drupal 8][drupal] is ever released.
 
 ### Bug Fixing
 
