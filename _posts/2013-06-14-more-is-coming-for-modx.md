@@ -1,6 +1,8 @@
 ---
 published: true
-layout: default
+layout: post
+title: More is coming for MODX
+category: posts
 comments: true
 ---
 
