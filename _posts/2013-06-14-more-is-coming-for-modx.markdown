@@ -6,7 +6,7 @@ category: posts
 comments: true
 ---
 
-Over the past few months some interesting development have been happening in the MODX community. One of those changes is the whole transition between the [SiphonLabs][siphon] team and the [MODX][modx] team. Now that the skies have cleared of all the cloud I am happy with the progress of both companies.
+Over the past few months some interesting development have been happening in the MODX community. One of those changes is the whole transition between the [SiphonLabs][siphon] team and the [MODX][modx] team. Now that the skies have cleared of all the cloud, I am happy with the progress of both companies.
 
 > [SiphonLabs][siphon] will be at this year's [Wordcamp][wordcamp] go check them out.
 
