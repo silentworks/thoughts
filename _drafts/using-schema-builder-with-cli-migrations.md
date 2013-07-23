@@ -102,6 +102,12 @@ If you require even more autocomplete and also don't want to repeat the table na
             $this->schema->drop($this->tableName);
         }
 	}
+    
+You are now able to run your migrations from the CLI while making use of [Eloquent's][eloquent] schema builder, so you get all the niceties of Laravel 4 `Illuminate\Database` package without the need of [Artisan][artisan].
+
+Do note you can use the Schema Builder without a CLI if your wish, you could add them to files that get accessed via the url and your database would update, but what this mean is that you would have to manage all your migrations manually. With the setup above, your migrations are handled by the [PHPMig][phpmig] library.
+
+Thanks to Taylor Otwell for creating such a great framework, thanks to Dave Marshall for creating [PHPMig][phpmig] and thanks to Jamie for pointing me to [PHPMig][phpmig].
 
 [twitter_status]: https://twitter.com/silentworks/status/356817117619818496
 [artisan]: http://laravel.com/docs/artisan
