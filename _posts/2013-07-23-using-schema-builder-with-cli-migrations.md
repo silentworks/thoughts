@@ -51,7 +51,9 @@ The reason we are using the `PDO\SqlServer` adapter rather than creating one wit
 
 Once we run our migration the first time, it will create a `migrations` table. We then need to run:
 
-    $ vendor/bin/phpmig generate AddMyFirstTable
+~~~ bash
+$ vendor/bin/phpmig generate AddMyFirstTable
+~~~
     
 Once you have done this, you should have a class created for you with the necessary methods. In order to get the exposed version of [Eloquent][eloquent] in here we can access it through a `get` method provided by the `Migration` class which your current class extends.
 
