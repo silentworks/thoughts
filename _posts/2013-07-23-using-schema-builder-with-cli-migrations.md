@@ -23,6 +23,8 @@ I found the instructions on the [Github][phpmig] page to be really easy to follo
 
 {% highlight php %}
 
+<?php
+
 use \Phpmig\Pimple\Pimple,
 \Illuminate\Database\Capsule\Manager as Capsule;
 
@@ -74,6 +76,8 @@ Once you have done this, you should have a class created for you with the necess
 
 {% highlight php %}
 
+<?php
+
 /**
  * Do the migration
  */
@@ -97,6 +101,8 @@ You now have access to [Eloquent's][eloquent] schema builder, the bit of code ab
 If you require even more autocomplete and also don't want to repeat the table name in the up and down method, there is an additional `init` method where you can initialize all your variables like, below is an example of the entire class.
 
 {% highlight php %}
+
+<?php
 
 class AddMyFirstTable extends Migration
 {
