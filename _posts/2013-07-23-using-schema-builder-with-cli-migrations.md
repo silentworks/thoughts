@@ -28,8 +28,20 @@ use \Phpmig\Pimple\Pimple,
 
 $container = new Pimple();
 
+$container['config'] = array(
+    'driver'    => 'sqlsrv',
+    'host'      => '100.0.0.123:1433',
+    'port'      => null,
+    'database'  => 'dbname',
+    'username'  => 'dbuser',
+    'password'  => 'dbpassword',
+    'prefix'    => '',
+    'charset'   => "utf8",
+    'collation' => "utf8_unicode_ci"
+)
+
 $container['db'] = $container->share(function() {
-    return new PDO('dblib:dbname=testdb;host=127.0.0.1','username','passwd');
+    return new PDO("dblib:host=" . $c['config']['host'] . ";dbname=" . $c['config']['database'], $c['config']['username'], $c['config']['password']);
 });
 
 $container['schema'] = $container->share(function($c) {
