@@ -34,12 +34,74 @@ I found the instructions on the [Github][phpmig] page to be really easy to follo
 	});
     
     $container['phpmig.adapter'] = $container->share(function() use ($container) {
-    	return new Adapter\PDO\SqlServer($container['db'], '__migrations__');
+    	return new Adapter\PDO\SqlServer($container['db'], 'migrations');
 	});
 
-The reason we are using the `PDO\SqlServer` adapter rather than creating one with the `Illuminate\Database` package is that I wanted to keep the way we access, create, update the `__migrations__` table independent of Eloquent. This means that I am not binding a user into using Eloquent for all their needs as they can access the `db` container and use raw SQL syntax.
+The reason we are using the `PDO\SqlServer` adapter rather than creating one with the `Illuminate\Database` package is that I wanted to keep the way we access, create, update the `migrations` table independent of Eloquent. This means that I am not binding a user into using Eloquent for all their needs as they can access the `db` container and use raw SQL syntax.
 
-Once we run our migration the first time, it will create a `__migrations__` table
+Once we run our migration the first time, it will create a `migrations` table. We then need to run:
+
+	$ vendor/bin/phpmig generate AddMyFirstTable
+    
+Once you have done this, you should have a class created for you with the necessary methods. In order to get the exposed version of [Eloquent][eloquent] in here we can access it through a `get` method provided by the `Migration` class which your current class extends.
+
+	/**
+     * Do the migration
+     */
+    public function up()
+    {
+        /* @var \Illuminate\Database\Schema\Blueprint $table */
+        $this->get('schema')->create('posts', function ($table)
+        {
+            $table->increments('id');
+            $table->string('title');
+            $table->text('content');
+            $table->timestamps();
+            $table->softDeletes();
+        });
+    }
+
+You now have access to [Eloquent's][eloquent] schema builder, the bit of code above the `$this->get` is only for IDE which support autocomplete by looking at var properties in comments.
+
+If you require even more autocomplete and also don't want to repeat the table name in the up and down method, there is an additional `init` method where you can initialize all your variables like, below is an example of the entire class.
+
+	class AddMyFirstTable extends Migration
+	{
+    	protected $tableName;
+  
+        /* @var \Illuminate\Database\Schema\Builder $schema */
+        protected $schema;
+        
+        public function init()
+        {
+        	$this->tableName = 'posts';
+        	$this->schema = $this->get('schema');
+        }
+
+        /**
+         * Do the migration
+         */
+        public function up()
+        {
+            /* @var \Illuminate\Database\Schema\Blueprint $table */
+            $this->schema->create($this->tableName, function ($table)
+            {
+                $table->increments('id');
+            	$table->string('title');
+            	$table->text('content');
+            	$table->timestamps();
+            	$table->softDeletes();
+            });
+        }
+
+        /**
+         * Undo the migration
+         */
+        public function down()
+        {
+            $this->schema->drop($this->tableName);
+        }
+	}
 
 [twitter_status]: https://twitter.com/silentworks/status/356817117619818496
 [artisan]: http://laravel.com/docs/artisan
