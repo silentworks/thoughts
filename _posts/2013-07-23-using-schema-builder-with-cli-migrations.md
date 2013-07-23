@@ -21,36 +21,83 @@ I decided to take a look at the library he provided a [link][phpmig] to, but soo
 
 I found the instructions on the [Github][phpmig] page to be really easy to follow, so I followed the steps, for my connection I used normal PDO which I stored in the `db` container but along with this I also stored [Eloquent][eloquent] into another container called `schema`.
 
-    use \Phpmig\Pimple\Pimple,
-    \Illuminate\Database\Capsule\Manager as Capsule;
-    
-    $container = new Pimple();
+{% highlight php %}
 
-    $container['db'] = $container->share(function() {
-        return new PDO('dblib:dbname=testdb;host=127.0.0.1','username','passwd');
-    });
+use \Phpmig\Pimple\Pimple,
+\Illuminate\Database\Capsule\Manager as Capsule;
 
-    $container['schema'] = $container->share(function($c) {
-        /* Bootstrap Eloquent */
-        $capsule = new Capsule;
-        $capsule->addConnection($c['config']);
-        $capsule->setAsGlobal();
-        /* Bootstrap end */
+$container = new Pimple();
 
-        return Capsule::schema();
-    });
-    
-    $container['phpmig.adapter'] = $container->share(function() use ($container) {
-        return new Adapter\PDO\SqlServer($container['db'], 'migrations');
-    });
+$container['db'] = $container->share(function() {
+    return new PDO('dblib:dbname=testdb;host=127.0.0.1','username','passwd');
+});
+
+$container['schema'] = $container->share(function($c) {
+    /* Bootstrap Eloquent */
+    $capsule = new Capsule;
+    $capsule->addConnection($c['config']);
+    $capsule->setAsGlobal();
+    /* Bootstrap end */
+
+    return Capsule::schema();
+});
+
+$container['phpmig.adapter'] = $container->share(function() use ($container) {
+    return new Adapter\PDO\SqlServer($container['db'], 'migrations');
+});
+
+{% endhighlight %}
 
 The reason we are using the `PDO\SqlServer` adapter rather than creating one with the `Illuminate\Database` package is that I wanted to keep the way we access, create, update the `migrations` table independent of Eloquent. This means that I am not binding a user into using Eloquent for all their needs as they can access the `db` container and use raw SQL syntax.
 
 Once we run our migration the first time, it will create a `migrations` table. We then need to run:
 
-    $ vendor/bin/phpmig generate AddMyFirstTable
+{% highlight bash %}
+
+$ vendor/bin/phpmig generate AddMyFirstTable
+
+{% endhighlight %}
     
 Once you have done this, you should have a class created for you with the necessary methods. In order to get the exposed version of [Eloquent][eloquent] in here we can access it through a `get` method provided by the `Migration` class which your current class extends.
+
+{% highlight php %}
+
+/**
+ * Do the migration
+ */
+public function up()
+{
+    /* @var \Illuminate\Database\Schema\Blueprint $table */
+    $this->get('schema')->create('posts', function ($table)
+    {
+        $table->increments('id');
+        $table->string('title');
+        $table->text('content');
+        $table->timestamps();
+        $table->softDeletes();
+    });
+}
+
+{% endhighlight %}
+
+You now have access to [Eloquent's][eloquent] schema builder, the bit of code above the `$this->get` is only for IDE which support autocomplete by looking at var properties in comments.
+
+If you require even more autocomplete and also don't want to repeat the table name in the up and down method, there is an additional `init` method where you can initialize all your variables like, below is an example of the entire class.
+
+{% highlight php %}
+
+class AddMyFirstTable extends Migration
+{
+    protected $tableName;
+
+    /* @var \Illuminate\Database\Schema\Builder $schema */
+    protected $schema;
+    
+    public function init()
+    {
+        $this->tableName = 'posts';
+        $this->schema = $this->get('schema');
+    }
 
     /**
      * Do the migration
@@ -58,7 +105,7 @@ Once you have done this, you should have a class created for you with the necess
     public function up()
     {
         /* @var \Illuminate\Database\Schema\Blueprint $table */
-        $this->get('schema')->create('posts', function ($table)
+        $this->schema->create($this->tableName, function ($table)
         {
             $table->increments('id');
             $table->string('title');
@@ -68,48 +115,17 @@ Once you have done this, you should have a class created for you with the necess
         });
     }
 
-You now have access to [Eloquent's][eloquent] schema builder, the bit of code above the `$this->get` is only for IDE which support autocomplete by looking at var properties in comments.
-
-If you require even more autocomplete and also don't want to repeat the table name in the up and down method, there is an additional `init` method where you can initialize all your variables like, below is an example of the entire class.
-
-    class AddMyFirstTable extends Migration
+    /**
+     * Undo the migration
+     */
+    public function down()
     {
-        protected $tableName;
-  
-        /* @var \Illuminate\Database\Schema\Builder $schema */
-        protected $schema;
-        
-        public function init()
-        {
-            $this->tableName = 'posts';
-            $this->schema = $this->get('schema');
-        }
-
-        /**
-         * Do the migration
-         */
-        public function up()
-        {
-            /* @var \Illuminate\Database\Schema\Blueprint $table */
-            $this->schema->create($this->tableName, function ($table)
-            {
-                $table->increments('id');
-                $table->string('title');
-                $table->text('content');
-                $table->timestamps();
-                $table->softDeletes();
-            });
-        }
-
-        /**
-         * Undo the migration
-         */
-        public function down()
-        {
-            $this->schema->drop($this->tableName);
-        }
+        $this->schema->drop($this->tableName);
     }
-    
+}
+
+{% endhighlight %}
+
 You are now able to run your migrations from the CLI while making use of [Eloquent's][eloquent] schema builder, so you get all the niceties of Laravel 4 `Illuminate\Database` package without the need of [Artisan][artisan].
 
 Do note you can use the Schema Builder without a CLI if your wish, you could add them to files that get accessed via the url and your database would update, but what this mean is that you would have to manage all your migrations manually. With the setup above, your migrations are handled by the [PHPMig][phpmig] library.
