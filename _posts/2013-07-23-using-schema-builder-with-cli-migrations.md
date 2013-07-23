@@ -1,3 +1,10 @@
+---
+layout: post
+title: Using Schema Builder with CLI Migrations
+category: posts
+comments: true
+---
+
 The PHP Framework market landscape has changed recently with the anticipation of [Laravel 4][laravel], the most expressive PHP Framework to have come out of the techworks. The anticipation of this framework is not only due to its easy to use expressive syntax but is also due to the changes that L4 was bringing to the community.
 
 This version of the Framework has been moved to a component based approach which allows other developers in the PHP community to make use of certain aspects of the Framework outside of the Frameworks.
