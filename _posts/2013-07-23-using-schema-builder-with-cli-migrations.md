@@ -21,7 +21,8 @@ I decided to take a look at the library he provided a [link][phpmig] to, but soo
 
 I found the instructions on the [Github][phpmig] page to be really easy to follow, so I followed the steps, for my connection I used normal PDO which I stored in the `db` container but along with this I also stored [Eloquent][eloquent] into another container called `schema`.
 
-{% highlight php %}
+    ```php
+    
     use \Phpmig\Pimple\Pimple,
     \Illuminate\Database\Capsule\Manager as Capsule;
     
@@ -44,7 +45,7 @@ I found the instructions on the [Github][phpmig] page to be really easy to follo
     $container['phpmig.adapter'] = $container->share(function() use ($container) {
         return new Adapter\PDO\SqlServer($container['db'], 'migrations');
     });
-{% endhighlight %}
+    ```
 
 The reason we are using the `PDO\SqlServer` adapter rather than creating one with the `Illuminate\Database` package is that I wanted to keep the way we access, create, update the `migrations` table independent of Eloquent. This means that I am not binding a user into using Eloquent for all their needs as they can access the `db` container and use raw SQL syntax.
 
@@ -54,7 +55,7 @@ Once we run our migration the first time, it will create a `migrations` table. W
     
 Once you have done this, you should have a class created for you with the necessary methods. In order to get the exposed version of [Eloquent][eloquent] in here we can access it through a `get` method provided by the `Migration` class which your current class extends.
 
-{% highlight php %}
+    ```php
     /**
      * Do the migration
      */
@@ -70,13 +71,13 @@ Once you have done this, you should have a class created for you with the necess
             $table->softDeletes();
         });
     }
-{% endhighlight %}
+    ```
 
 You now have access to [Eloquent's][eloquent] schema builder, the bit of code above the `$this->get` is only for IDE which support autocomplete by looking at var properties in comments.
 
 If you require even more autocomplete and also don't want to repeat the table name in the up and down method, there is an additional `init` method where you can initialize all your variables like, below is an example of the entire class.
 
-{% highlight php %}
+    ```php
     class AddMyFirstTable extends Migration
     {
         protected $tableName;
@@ -114,7 +115,7 @@ If you require even more autocomplete and also don't want to repeat the table na
             $this->schema->drop($this->tableName);
         }
     }
-{% endhighlight %}
+    ```
     
 You are now able to run your migrations from the CLI while making use of [Eloquent's][eloquent] schema builder, so you get all the niceties of Laravel 4 `Illuminate\Database` package without the need of [Artisan][artisan].
 
