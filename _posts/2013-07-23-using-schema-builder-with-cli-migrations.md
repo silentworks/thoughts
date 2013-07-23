@@ -31,26 +31,13 @@ Once we run our migration the first time, it will create a `migrations` table. W
     
 Once you have done this, you should have a class created for you with the necessary methods. In order to get the exposed version of [Eloquent][eloquent] in here we can access it through a `get` method provided by the `Migration` class which your current class extends.
 
-    /**
-     * Do the migration
-     */
-    public function up()
-    {
-        /* @var \Illuminate\Database\Schema\Blueprint $table */
-        $this->get('schema')->create('posts', function ($table)
-        {
-            $table->increments('id');
-            $table->string('title');
-            $table->text('content');
-            $table->timestamps();
-            $table->softDeletes();
-        });
-    }
+<script src="https://gist.github.com/silentworks/6061270.js"></script>
 
 You now have access to [Eloquent's][eloquent] schema builder, the bit of code above the `$this->get` is only for IDE which support autocomplete by looking at var properties in comments.
 
 If you require even more autocomplete and also don't want to repeat the table name in the up and down method, there is an additional `init` method where you can initialize all your variables like, below is an example of the entire class.
 
+    ```php
     class AddMyFirstTable extends Migration
     {
         protected $tableName;
@@ -88,6 +75,7 @@ If you require even more autocomplete and also don't want to repeat the table na
             $this->schema->drop($this->tableName);
         }
     }
+    ```
     
 You are now able to run your migrations from the CLI while making use of [Eloquent's][eloquent] schema builder, so you get all the niceties of Laravel 4 `Illuminate\Database` package without the need of [Artisan][artisan].
 
