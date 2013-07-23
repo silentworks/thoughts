@@ -21,28 +21,7 @@ I decided to take a look at the library he provided a [link][phpmig] to, but soo
 
 I found the instructions on the [Github][phpmig] page to be really easy to follow, so I followed the steps, for my connection I used normal PDO which I stored in the `db` container but along with this I also stored [Eloquent][eloquent] into another container called `schema`.
 
-    use \Phpmig\Pimple\Pimple,
-    \Illuminate\Database\Capsule\Manager as Capsule;
-    
-    $container = new Pimple();
-
-    $container['db'] = $container->share(function() {
-        return new PDO('dblib:dbname=testdb;host=127.0.0.1','username','passwd');
-    });
-
-    $container['schema'] = $container->share(function($c) {
-        /* Bootstrap Eloquent */
-        $capsule = new Capsule;
-        $capsule->addConnection($c['config']);
-        $capsule->setAsGlobal();
-        /* Bootstrap end */
-
-        return Capsule::schema();
-    });
-    
-    $container['phpmig.adapter'] = $container->share(function() use ($container) {
-        return new Adapter\PDO\SqlServer($container['db'], 'migrations');
-    });
+<script src="https://gist.github.com/silentworks/6061257.js"></script>
 
 The reason we are using the `PDO\SqlServer` adapter rather than creating one with the `Illuminate\Database` package is that I wanted to keep the way we access, create, update the `migrations` table independent of Eloquent. This means that I am not binding a user into using Eloquent for all their needs as they can access the `db` container and use raw SQL syntax.
 
