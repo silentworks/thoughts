@@ -32,7 +32,7 @@ You can see the full code below.
     
 The recommended way of handling this is to unwrap your promise inside of your controller and pass the unwrapped data to your view, this can be done using the .then() method of the promise object.
 
-### Example 3
+### Example 2
 
 	app.controller('RepeatController', function ($scope, DataFactory) {
   		DataFactory.getData().then(function (data) {
