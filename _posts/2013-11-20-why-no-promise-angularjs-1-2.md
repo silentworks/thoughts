@@ -1,6 +1,7 @@
 ---
 published: true
 layout: post
+title: "Why no promise AngularJS 1.2.0+"
 category: posts
 comments: true
 ---
@@ -15,7 +16,9 @@ This is not as prominent in the [changelog][] as I would expect it to be, seeing
 
 There are two ways to fix this issue according to the [Stack Overflow][stackoverflow] link. You can either turn the feature back on by using
 
-	$parseProvider.unwrapPromises(true)
+{% highlight js %}
+$parseProvider.unwrapPromises(true);
+{% endhighlight %}
 
 This is only recommended for short term fix as this feature is actually deprecated. If it is not clear where you would set this, I have written in example 1 below showing how this would be called.
 
@@ -36,7 +39,7 @@ The recommended way of handling this is to unwrap your promise inside of your co
 
 	app.controller('RepeatController', function ($scope, DataFactory) {
   		DataFactory.getData().then(function (data) {
-    		$scope.weeks = data;
+    			$scope.weeks = data;
   		});
 	});
     
