@@ -90,6 +90,7 @@ In the singleton method we define our resource as `twig` and pass it a closure w
 
 {% highlight php %}
 
+<?php
 $twig = new \Slim\Views\Twig();
 
 {% endhighlight %}
@@ -97,7 +98,7 @@ $twig = new \Slim\Views\Twig();
 Now we have our [Twig][] view initialised, we might want to setup our options and extensions we want [Twig][] to use. This is what the lines below are doing:
 
 {% highlight php %}
-
+<?php
 /* Option */
 $twig->parserOptions = array(
     'debug' => true,
@@ -108,14 +109,13 @@ $twig->parserOptions = array(
 $twig->parserExtensions = array(
     new \Slim\Views\TwigExtension(),
 );
-
 {% endhighlight %}
 
 Once we have this done we need to tell out [Twig][] view parser where out template directory is located, we can get this through the resource locator from our
 Slim settings.
 
 {% highlight php %}
-
+<?php
 $templatesPath = $c['settings']['templates.path'];
 $twig->setTemplatesDirectory($templatesPath);
 
@@ -125,7 +125,7 @@ $twig->setTemplatesDirectory($templatesPath);
 Once we are done with our settings and setting the template path we return our instance.
 
 {% highlight php %}
-
+<?php
 return $twig;
 
 {% endhighlight %}
@@ -135,7 +135,7 @@ return $twig;
 Now we can start making changes to our code to make use of our newly setup Twig view. If we wanted to change our `about` route we would rewrite as:
 
 {% highlight php %}
-
+<?php
 $app->get('/about', function () use ($app) {
     $app->twig->display('about.php');
 })->name('about');
