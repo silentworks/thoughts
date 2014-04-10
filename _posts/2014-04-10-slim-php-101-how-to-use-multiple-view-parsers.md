@@ -143,7 +143,7 @@ $app->get('/about', function () use ($app) {
 
 {% endhighlight %}
 
-We are now using our Twig view to render out template instead of the PHP view, while in our `home` route we are still using our PHP view. Here is the full code below:
+We are now using our Twig view to render our template instead of the PHP view, while in our `home` route we are still using our PHP view. Here is the full code below:
 
 {% highlight php %}
 
