@@ -177,7 +177,7 @@ $app->get('/', function () use ($app) {
 })->name('home');
 
 $app->get('/about', function () use ($app) {
-    $app->render('about.php');
+    $app->twig->display('about.php');
 })->name('about');
 
 {% endhighlight %}
