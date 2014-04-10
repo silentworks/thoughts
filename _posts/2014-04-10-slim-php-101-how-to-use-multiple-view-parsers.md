@@ -3,7 +3,7 @@ published: true
 layout: post
 category: posts
 comments: true
-title: "SlimPHP 101 - How to use multiple view parsers"
+title: "Slim PHP 101 - How to use multiple view parsers"
 ---
 
 In this post we will go through setting up [Slim][] to work with multiple view parsers, for this example we will look at using [Slim's][] PHP view library and the [Twig][] view library. In order to use Slim with Twig we need a view parser, luckily enough there is already one created in the [Slim Views][] repository.
