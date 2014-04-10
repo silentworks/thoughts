@@ -24,10 +24,12 @@ This is only recommended for short term fix as this feature is actually deprecat
 
 ### Example 1
 
-	var app = angular.module('Application', []);
-	app.config(function ($parseProvider) {
-		$parseProvider.unwrapPromises(true);
-	});
+{% highlight js %}
+var app = angular.module('Application', []);
+app.config(function ($parseProvider) {
+	$parseProvider.unwrapPromises(true);
+});
+{% endhighlight %}
     
 You can see the full code below.
 
@@ -37,11 +39,13 @@ The recommended way of handling this is to unwrap your promise inside of your co
 
 ### Example 2
 
-	app.controller('RepeatController', function ($scope, DataFactory) {
-  		DataFactory.getData().then(function (data) {
-    			$scope.weeks = data;
-  		});
-	});
+{% highlight js %}
+app.controller('RepeatController', function ($scope, DataFactory) {
+		DataFactory.getData().then(function (data) {
+  			$scope.weeks = data;
+		});
+});
+{% endhighlight %}
     
 You can see full code below.
 
