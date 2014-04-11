@@ -38,10 +38,11 @@ Now that we can see one of the benefits (will cover more as the article goes on)
 Here is a example of what our `config.php` file would look like.
 
 {% highlight php %}
-  return array(
-    'site_name' => 'My Website',
-    'site_strapline' => 'This is my first website'
-  );
+<?php
+return array(
+  'site_name' => 'My Website',
+  'site_strapline' => 'This is my first website'
+);
 {% endhighlight %}
 
 > We will be using composer to install all our dependencies.
@@ -110,6 +111,7 @@ $app->container->singleton('config', function ($c) {
 Lets walk through the added code above and explain what each bit is doing (I will intentionally skip the `ENVIRONMENT` variable bit as the comment states what it's doing).
 
 {% highlight php %}
+<?php
 $app->container->singleton('files', function () {
   return new Illuminate\Filesystem\Filesystem;
 });
@@ -118,6 +120,7 @@ $app->container->singleton('files', function () {
 In order to make use of the [Config][] package we need the [Filesystem][] package, we are passing this into the [DI][] container of [Slim][].
 
 {% highlight php %}
+<?php
 $app->container->singleton('loader', function ($c) {
   $configPath = __DIR__ . '/config';
   return new Illuminate\Config\FileLoader($c['files'], $configPath);
@@ -127,6 +130,7 @@ $app->container->singleton('loader', function ($c) {
 In the code above we now setup the config loader which we pass the [Filesystem][] package into along with our config root path.
 
 {% highlight php %}
+<?php
 $app->container->singleton('config', function ($c) {
   return new Illuminate\Config\Repository($c['loader'], ENVIRONMENT);
 });
@@ -137,6 +141,7 @@ Now we are creating our actual `config` resource locator and passing in our prev
 We can now make use of this by calling `$app->config`, you can find the [API documentation][].
 
 {% highlight php %}
+<?php
 $app->get('/', function () use ($app) {
   $data['site_name'] = $app->config->get('config.site_name');
 
