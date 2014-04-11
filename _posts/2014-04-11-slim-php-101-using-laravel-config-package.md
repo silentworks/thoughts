@@ -6,7 +6,7 @@ comments: true
 title: "Slim PHP 101 - Using Laravel config package"
 ---
 
-Over the past few years Laravel have become a popular full stack PHP framework and with its latest version (L4) the framework have been modularize. Now we can make use of most of Laravel components outside of the framework, the author of the framework have created packages under the name [illuminate][].
+Over the past few years Laravel have become a popular full stack PHP framework and with its latest version (L4) the framework have been componentized. Now we can make use of most of Laravel components outside of the framework, the author of the framework have created packages under the name [illuminate][].
 
 Today I will show you how to integrate the [Config][] package into Slim and make use of it. Before we move on to that, some may ask what value will this add to [Slim][] since we can already store settings inside of [Slim][]. With the [Config][] package
 we can store settings into separate files and we can also make use of the cascading folder structure for different environments.
