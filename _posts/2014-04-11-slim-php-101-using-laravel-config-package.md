@@ -1,8 +1,9 @@
 ---
 published: true
-layout: posts
-title: "Slim PHP 101 - Using Laravel config package"
+layout: post
+category: posts
 comments: true
+title: "Slim PHP 101 - Using Laravel config package"
 ---
 
 Over the past few years Laravel have become a popular full stack PHP framework and with its latest version (L4) the framework have been modularize. Now we can make use of most of Laravel components outside of the framework, the author of the framework have created packages under the name [illuminate][].
