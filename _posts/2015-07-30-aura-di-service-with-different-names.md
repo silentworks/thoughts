@@ -1,5 +1,6 @@
 ---
 published: true
+title: Aura Di service with different names
 layout: post
 category: posts
 comments: true
