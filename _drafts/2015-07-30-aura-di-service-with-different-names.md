@@ -1,6 +1,10 @@
 ---
 published: false
+layout: post
+category: posts
+comments: true
 ---
+
 
 
 ## Aura Di service with different names
