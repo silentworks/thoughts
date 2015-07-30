@@ -32,4 +32,6 @@ $di->get('error.handler');
 $di->get(ErrorHandler::class);
 ```
 
-Thanks to Paul Jones for taking the time to help solving this issue.
+Thanks to (Paul Jones)[pmjones] for taking the time to help solving this issue.
+
+[pmjones]: https://twitter.com/pmjones
