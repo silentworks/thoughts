@@ -6,9 +6,9 @@ category: posts
 comments: true
 ---
 
-I have been working on a legacy application and wanted to remove the old process of how it lookup its services from file name and database entry to using a service locator container instead. I looked at a few DI containers and went along with Aura Di.
+I have been working on a legacy application and wanted to remove the old process of how it lookup its services from file name and database entry to using a service locator container instead. I looked at a few DI containers and went along with [Aura Di][aura.di].
 
-I was happy that it would allow me to work with it as a service locator as I wanted for backward compatibility in the application. In the legacy code, service names vary and look like `error.handler`, while we want to refer to them by using PHP 5.5 class name resolution `ErrorHandler::class`.
+I was happy that it would allow me to work with it as a service locator as I wanted for backward compatibility in the application. In the legacy code, service names vary and look like `error.handler`, while we want to refer to them by using [PHP 5.5 class name resolution][php.class_resolution] `ErrorHandler::class`.
 
 {% highlight php %}
 <?php
@@ -40,3 +40,5 @@ $di->get(ErrorHandler::class);
 Thanks to [Paul Jones][pmjones] for taking the time to help solving this issue.
 
 [pmjones]: https://twitter.com/pmjones
+[aura.di]: http://auraphp.com/packages/Aura.Di/
+[php.class_resolution]: http://php.net/manual/en/migration55.new-features.php#migration55.new-features.class-name
