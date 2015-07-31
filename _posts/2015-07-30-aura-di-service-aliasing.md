@@ -1,6 +1,6 @@
 ---
 published: true
-title: Aura Di setting service with different names
+title: Aura Di service aliasing
 layout: post
 category: posts
 comments: true
