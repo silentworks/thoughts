@@ -39,6 +39,8 @@ $di->get(ErrorHandler::class);
 
 Thanks to [Paul Jones][pmjones] for taking his time to help in solving this issue.
 
+Note: The examples above are using Aura Di 3.0.0.
+
 [pmjones]: https://twitter.com/pmjones
 [aura.di]: http://auraphp.com/packages/Aura.Di/
 [php.class_resolution]: http://php.net/manual/en/migration55.new-features.php#migration55.new-features.class-name
