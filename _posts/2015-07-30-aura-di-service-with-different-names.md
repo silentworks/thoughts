@@ -37,7 +37,7 @@ $di->get('error.handler');
 $di->get(ErrorHandler::class);
 {% endhighlight %}
 
-Thanks to [Paul Jones][pmjones] for taking the time to help solving this issue.
+Thanks to [Paul Jones][pmjones] for taking his time to help in solving this issue.
 
 [pmjones]: https://twitter.com/pmjones
 [aura.di]: http://auraphp.com/packages/Aura.Di/
