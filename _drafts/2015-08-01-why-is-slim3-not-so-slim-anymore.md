@@ -21,5 +21,10 @@ Doing a file count will result in 104 PHP files with all dependencies and compos
 
 We have tried to keep to the Slim's simplicity and left the developer in control as it was in Slim 2, we continue to improve this leading up to the release of Slim 3. We have been overwhelmed with the help of the community and think Slim is now a project driven by the community and not by an individual.
 
-I would like to thank [Josh Lockhart][] the creator of Slim for allowing me to work alongside himself over the years building the framework and community. I would like to thank all the contributors who have been doing such great work on the framework and improving it by the day, to name a few [Rob Allen][], [Jason Coward][]
+I would like to thank [Josh Lockhart][josh] the creator of Slim for allowing me to work alongside himself over the years building the framework and community. I would like to thank all the contributors who have been doing such great work on the framework and improving it by the day, to name a few [Rob Allen][rob], [Jason Coward][jason], [Glenn Eggleton][glenn], [Alex Stansfield][alex] and [Samuel Laulhau][samuel].
 
+[josh]: https://twitter.com/codeguy
+[jason]: https://twitter.com/drumshaman
+[glenn]: https://twitter.com/geggleto
+[alex]: https://twitter.com/SirMuttley
+[samuel]: https://twitter.com/_samuel_
