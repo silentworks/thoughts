@@ -10,11 +10,15 @@ There is a common misconception that [Slim 3][] has plenty of files and is no lo
 
 Installing [Slim 3][] through composer will install all its dependencies, when doing a PHP file count you will notice we have doubled in file count. This is a given with the amount of flexibility we now have. Most developers might not see any benefit in this as they will likely just work with what is provided, but if at any point you should hit a limitation in any working part of the framework, you can easily swap it out without a fuss.
 
-> composer require slim/slim:"^3.0.0-beta1"
+{% highlight bash %}
+composer require slim/slim:"^3.0.0-beta1"
+{% endhighlight %}
 
 If you are on Linux or OSX, you can get a file count using the command below.
 
-> find ./vendor -name "*.php" | wc -l
+{% highlight bash %}
+find ./vendor -name "*.php" | wc -l
+{% endhighlight %}
 
 You will also notice Slim only depend on 4 external sources, 2 of which are just contracts that Slim conforms to. 
 
@@ -24,7 +28,9 @@ We have removed a fair bit from the core as we don't think we should provide the
 
 Doing a file count resulted in 104 PHP files with all dependencies and composer autoload files. I have seen some state they are getting 1000+ files, this is not true, you will only get that amount of files if you are working on the framework itself using the command below, as this is the result of development dependencies.
 
-> git clone https://github.com/slimphp/Slim.git && cd Slim && composer install
+{% highlight bash %}
+$ git clone https://github.com/slimphp/Slim.git && cd Slim && composer install
+{% endhighlight %}
 
 We have tried to keep to Slim's simplicity and left the developer in control as it was in [Slim 2][], we continue to improve on this leading up to the release of [Slim 3][]. We have been overwhelmed with the help of the community and think Slim is now a project driven by the community and not by an individual.
 
