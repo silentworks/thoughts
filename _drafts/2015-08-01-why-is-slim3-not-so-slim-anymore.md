@@ -2,12 +2,9 @@
 published: false
 ---
 
+There is a common misconception that [Slim 3][] has plenty of files and is no longer slim. [Slim 3][] does indeed contain more files than [Slim 2][] and this has been the result of being more flexible and moving away from the Not Invented Here (NIH) philosophy.
 
-
-
-There is a common misconception that Slim 3 has plenty of files and is no longer slim. Slim 3 does indeed contain more files than Slim 2 and this has been the result of being more flexible and moving away from the Not Invented Here (NIH) philosophy.
-
-Installing Slim 3 through composer will install all its dependencies, when doing a PHP file count you will notice we have doubled in file count. This is a given with the amount of flexibility we now have. Most developers might not see any benefit in this as they will likely just work with what is provided, but if at any point you should hit a limitation in any working part of the framework, you can easily swap it out without a fuss.
+Installing [Slim 3][] through composer will install all its dependencies, when doing a PHP file count you will notice we have doubled in file count. This is a given with the amount of flexibility we now have. Most developers might not see any benefit in this as they will likely just work with what is provided, but if at any point you should hit a limitation in any working part of the framework, you can easily swap it out without a fuss.
 
 > composer require slim/slim:"^3.0.0-beta1"
 
@@ -19,7 +16,7 @@ Doing a file count will result in 104 PHP files with all dependencies and compos
 
 > git clone https://github.com/slimphp/Slim.git && cd Slim && composer install
 
-We have tried to keep to the Slim's simplicity and left the developer in control as it was in Slim 2, we continue to improve this leading up to the release of Slim 3. We have been overwhelmed with the help of the community and think Slim is now a project driven by the community and not by an individual.
+We have tried to keep to Slim's simplicity and left the developer in control as it was in [Slim 2][], we continue to improve on this leading up to the release of [Slim 3][]. We have been overwhelmed with the help of the community and think Slim is now a project driven by the community and not by an individual.
 
 I would like to thank [Josh Lockhart][josh] the creator of Slim for allowing me to work alongside himself over the years building the framework and community. I would like to thank all the contributors who have been doing such great work on the framework and improving it by the day, to name a few [Rob Allen][rob], [Jason Coward][jason], [Glenn Eggleton][glenn], [Alex Stansfield][alex] and [Samuel Laulhau][samuel].
 
