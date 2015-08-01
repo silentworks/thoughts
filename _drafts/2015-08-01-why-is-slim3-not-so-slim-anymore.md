@@ -23,6 +23,7 @@ I would like to thank [Josh Lockhart][josh] the creator of Slim for allowing me 
 [Slim 3]: http://www.slimframework.com/docs
 [Slim 2]: http://www.slimframeworks.com/
 [josh]: https://twitter.com/codeguy
+[rob]: https://twitter.com/akrabat
 [jason]: https://twitter.com/drumshaman
 [glenn]: https://twitter.com/geggleto
 [alex]: https://twitter.com/SirMuttley
