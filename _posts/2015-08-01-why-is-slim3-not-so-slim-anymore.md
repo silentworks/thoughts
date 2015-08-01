@@ -26,7 +26,7 @@ We have removed a fair bit from the core as we don't think we should provide the
 
 > Vegtables are good for you, but we won't force feed them to you.
 
-Doing a file count resulted in 104 PHP files with all dependencies and composer autoload files. I have seen some state they are getting 1000+ files, this is not true, you will only get that amount of files if you are working on the framework itself using the command below, as this is the result of development dependencies.
+Doing a file count resulted in *104* PHP files with all dependencies and composer autoload files. I have seen some state they are getting *1000+* PHP files, this is not true, you will only get that amount of files if you are working on the framework itself using the command below, as this is the result of development dependencies.
 
 {% highlight bash %}
 $ git clone https://github.com/slimphp/Slim.git && cd Slim && composer install
