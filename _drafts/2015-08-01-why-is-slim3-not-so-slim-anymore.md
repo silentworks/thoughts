@@ -8,11 +8,17 @@ Installing [Slim 3][] through composer will install all its dependencies, when d
 
 > composer require slim/slim:"^3.0.0-beta1"
 
-You will notice Slim only depend on 4 external sources, 2 of which are just contracts that Slim conforms to. We have removed a fair bit from the core as we don't think we should provide these out of the box when there were some developers who didn't have any use for them in the first place.
+If you are on Linux or OSX, you can get a file count using the command below.
+
+> find ./vendor -name "*.php" | wc -l
+
+You will also notice Slim only depend on 4 external sources, 2 of which are just contracts that Slim conforms to. 
+
+We have removed a fair bit from the core as we don't think we should provide these out of the box when there were some developers who didn't have any use for them in the first place.
 
 > Vegtables are good for you, but we won't force feed them to you.
 
-Doing a file count will result in 104 PHP files with all dependencies and composer autoload files. I have seen some state they are getting 1000+ files, this is not true, you will only get that amount of files if you are working on the framework itself using the command below, as this is the result of development dependencies.
+Doing a file count resulted in 104 PHP files with all dependencies and composer autoload files. I have seen some state they are getting 1000+ files, this is not true, you will only get that amount of files if you are working on the framework itself using the command below, as this is the result of development dependencies.
 
 > git clone https://github.com/slimphp/Slim.git && cd Slim && composer install
 
