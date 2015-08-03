@@ -22,7 +22,7 @@ $ find ./vendor -name "*.php" | wc -l
 
 You will also notice Slim only depend on 4 external sources, 2 of which are just contracts that Slim conforms to. 
 
-We have removed a fair bit from the core as we don't think we should provide these out of the box when there were some developers who didn't have any use for them in the first place.
+We have removed a fair bit from the core as we don't think we should provide these as part of the core, there were some developers who didn't have any use for them in the first place.
 
 > Vegtables are good for you, but we won't force feed them to you.
 
