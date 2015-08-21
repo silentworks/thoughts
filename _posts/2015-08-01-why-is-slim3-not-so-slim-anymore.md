@@ -24,7 +24,7 @@ You will also notice Slim only depend on 4 external sources, 2 of which are just
 
 We have removed a fair bit from the core as we don't think we should provide these as part of the core, there were some developers who didn't have any use for them in the first place.
 
-> Vegtables are good for you, but we won't force feed them to you.
+> Vegetables are good for you, but we won't force feed them to you.
 
 Doing a file count resulted in **104** PHP files with all dependencies and composer autoload files. I have seen some state they are getting **1000+** PHP files, this is not true, you will only get that amount of files if you are working on the framework itself using the command below, as this is the result of development dependencies.
 
