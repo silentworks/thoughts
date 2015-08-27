@@ -121,8 +121,6 @@ $app->get('/world', JohnnyFiveSayAction::class)
     ->setName('world');
 {% endhighlight %}
 
-The reason we are able to just call the Action Class name here is that Slim 3 will check for the `__invoke` method. 
-
-There are resons noted on the ADR pattern website about why this is a good approach and what the benefits are.
+The reason we are able to just call the Action Class name here is that Slim 3 will check for the `__invoke` method. There are resons noted on the ADR pattern website about why this is a good approach and what the benefits are.
 
 If you have a different way of handling this and would like to share, please do so in the comments below.
