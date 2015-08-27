@@ -111,7 +111,7 @@ class ControllerFactory
 
 ### Using the Action out of the ADR pattern
 
-There are cases where you might be following the [ADR pattern](http://pmjones.io/adr/) and only have one Action Class per route. For this you can easily refactor and ctrl click the class in order to navigate to the definition if you are using PHP 5.5 class name resolution.
+There are cases where you might be following the [ADR pattern](http://pmjones.io/adr/) and only have one Action Class per route. This Action Class main method would be the `__invoke` method. With this you can easily refactor and ctrl click the class in order to navigate to the definition if you are using PHP 5.5 class name resolution.
 
 {% highlight php %}
 <?php
@@ -120,6 +120,8 @@ $app->get('/', JohnnyFiveHelloAction::class);
 $app->get('/world', JohnnyFiveSayAction::class)
     ->setName('world');
 {% endhighlight %}
+
+The reason we are able to just call the Action Class name here is that Slim 3 will check for the `__invoke` method. 
 
 There are resons noted on the ADR pattern website about why this is a good approach and what the benefits are.
 
