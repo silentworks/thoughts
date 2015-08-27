@@ -109,7 +109,7 @@ class ControllerFactory
 }
 {% endhighlight %}
 
-### Using the Action out of ADR
+### Using the Action out of the ADR pattern
 
 There are cases where you might be following the [ADR pattern](http://pmjones.io/adr/) and only have one Action Class per route. For this you can easily refactor and ctrl click the class in order to navigate to the definition if you are using PHP 5.5 class name resolution.
 
