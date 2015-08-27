@@ -85,7 +85,7 @@ $app->get('/world', function ($request, $response) use ($controllerFactory) {
 
 I now only need to inject my dependencies once inside of my `ControllerFactory` and within the factory I can handle the passing around of my dependencies.
 
-My `ControllerFactory` example code:
+`ControllerFactory` code:
 
 {% highlight php %}
 <?php
