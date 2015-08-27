@@ -51,7 +51,7 @@ $app->get('/world', 'JohnnyFiveController:say');
 
 This looks so much better, but you might ask where do I tell my `JohnnyFiveController` that `$template` should be passed into the `__construct` method, well we would have to state this elsewhere or our app would fail. We would now have to add our `JohnnyFiveController` into Slim's default Di container which is Pimple. Meaning we would be defining what class the `JohnnyFiveController` string should be looking for in our container. To me this is tedious and time consuming and if someone was to make a mistake and reference a different class in the container pointing to the `JohnnyFiveController` string we would be giving wrong information. I am also growing less fond of this method because of the refactoring issues mentioned above.
 
-### Factory for all
+### A Factory for all
 
 Recently I have started toying with the idea of adding all my controllers into a factory and then use that factory inside of the anonymous function. This means my controller are only created when needed, they are encapsulated, my IDE can refactor the class easily and my IDE can go to a method definition when I **ctrl** click.
 
@@ -67,4 +67,6 @@ $app->get('/world', function ($request, $response) use ($controllerFactory) {
 });
 {% endhighlight %}
 
-I now only need to inject my dependencies once inside of my `ControllerFactory` and within the factory I can handle the passing around of the dependency.
+I now only need to inject my dependencies once inside of my `ControllerFactory` and within the factory I can handle the passing around of my dependencies.
+
+If you have a different way of handling this and would like to share, please do so in the comments below.
