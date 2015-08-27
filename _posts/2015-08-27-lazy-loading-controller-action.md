@@ -76,7 +76,7 @@ $app->get('/', function ($request, $response) use ($controllerFactory) {
 });
 
 $app->get('/world', function ($request, $response) use ($controllerFactory) {
-    return $controllerFactory->newJohnnyFiveController()->say();
+    return $controllerFactory->newJohnnyFiveController()->say($response);
 });
 {% endhighlight %}
 
