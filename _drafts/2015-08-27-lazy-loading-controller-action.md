@@ -3,6 +3,7 @@ published: false
 layout: post
 category: posts
 comments: true
+title: Lazy loading your controller action
 ---
 
 In many popular frameworks these days you can lazy load your actions in order to not invoke every action unless it is the one matched that should be dispatched.
