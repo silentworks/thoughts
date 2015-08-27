@@ -57,7 +57,7 @@ In [Laravel](http://www.laravel.com) you have the `@` symbol to state your actio
 
 {% highlight php %}
 <?php
-$app->get('/', 'JohnnyFiveController:helloJohnnyFive');
+$app->get('/', 'JohnnyFiveController:hello');
 
 $app->get('/world', 'JohnnyFiveController:say');
 {% endhighlight %}
@@ -73,7 +73,7 @@ Recently I have started toying with the idea of adding all my controllers into a
 $controllerFactory = new ControllerFactory($container);
 
 $app->get('/', function ($request, $response) use ($controllerFactory) {
-    return $controllerFactory->newJohnnyFiveController()->helloJohnnyFive($response);
+    return $controllerFactory->newJohnnyFiveController()->hello($response);
 });
 
 $app->get('/world', function ($request, $response) use ($controllerFactory) {
