@@ -109,4 +109,18 @@ class ControllerFactory
 }
 {% endhighlight %}
 
+### Using the Action out of ADR
+
+There are cases where you might be following the [ADR pattern](http://pmjones.io/adr/) and only have one Action Class per route. For this you can easily refactor and ctrl click the class in order to navigate to the definition if you are using PHP 5.5 class name resolution.
+
+{% highlight php %}
+<?php
+$app->get('/', JohnnyFiveHelloAction::class);
+
+$app->get('/world', JohnnyFiveSayAction::class)
+    ->setName('world');
+{% endhighlight %}
+
+There are resons noted on the ADR pattern website about why this is a good approach and what the benefits are.
+
 If you have a different way of handling this and would like to share, please do so in the comments below.
