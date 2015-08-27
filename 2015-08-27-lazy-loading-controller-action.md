@@ -41,7 +41,7 @@ We now have a more encapsulated code, but this now feels like I am repeating mys
 
 ### Pattern based action loading
 
-In Laravel you have the `@` symbol to state your action for the defined route, while in Slim you have the `:` symbol. The issue I am finding with this approach is that my IDE cannot open to the defining class by **ctrl** clicking on the string, nor can I refactor a class easily because my route actions are all defined as strings. Here is what our example above would look like in this case.
+In Laravel you have the `@` symbol to state your action for the defined route, while in Slim you have the `:` symbol. The issue I am finding with this approach is that my IDE cannot open the defining action by **ctrl** clicking on the string, nor can I refactor a class easily because my route actions are all defined as strings. Here is what our example above would look like in this case.
 
 {% highlight php %}
 $app->get('/', 'JohnnyFiveController:helloJohnnyFive');
@@ -49,5 +49,22 @@ $app->get('/', 'JohnnyFiveController:helloJohnnyFive');
 $app->get('/world', 'JohnnyFiveController:say');
 {% endhighlight %}
 
-This looks so much better, but you might ask where do I tell my `JohnnyFiveController` that `$template` should be passed into the `__construct` method, well we would have to state this elsewhere or our app would fail. We would now have to add our `JohnnyFiveController` into Slim's default Di container which is Pimple. Meaning we would be defining what class the `JohnnyFiveController` string should be looking for in our container. To me this is tedious and time consuming and if someone was to make a mistake and reference a different class in the container pointing to the `JohnnyFiveController` string we would be giving wrong information.
+This looks so much better, but you might ask where do I tell my `JohnnyFiveController` that `$template` should be passed into the `__construct` method, well we would have to state this elsewhere or our app would fail. We would now have to add our `JohnnyFiveController` into Slim's default Di container which is Pimple. Meaning we would be defining what class the `JohnnyFiveController` string should be looking for in our container. To me this is tedious and time consuming and if someone was to make a mistake and reference a different class in the container pointing to the `JohnnyFiveController` string we would be giving wrong information. I am also growing less fond of this method because of the refactoring issues mentioned above.
 
+### Factory for all
+
+Recently I have started toying with the idea of adding all my controllers into a factory and then use that factory inside of the anonymous function. This means my controller are only created when needed, they are encapsulated, my IDE can refactor the class easily and my IDE can go to a method definition when I **ctrl** click.
+
+{% highlight php %}
+$controllerFactory = new ControllerFactory($template);
+
+$app->get('/', function ($request, $response) use ($controllerFactory) {
+    return $controllerFactory->newJohnnyFiveController()->helloJohnnyFive($response);
+});
+
+$app->get('/world', function ($request, $response) use ($controllerFactory) {
+    return $controllerFactory->newJohnnyFiveController()->say();
+});
+{% endhighlight %}
+
+I now only need to inject my dependencies once inside of my `ControllerFactory` and within the factory I can handle the passing around of the dependency.
