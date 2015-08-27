@@ -1,3 +1,10 @@
+---
+published: false
+layout: post
+category: posts
+comments: true
+---
+
 In many popular frameworks these days you can lazy load your actions in order to not invoke every action unless it is the one matched that should be dispatched.
 
 We have multiple ways of doing so and in this article I will talk about a few different ways of doing this. I will be using Slim 3 code for examples.
