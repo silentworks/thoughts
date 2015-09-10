@@ -2,6 +2,4 @@
 published: false
 ---
 
-## A New Post
-
-Enter text in [Markdown](http://daringfireball.net/projects/markdown/). Use the toolbar above, or click the **?** button for formatting help.
+In Slim 2 we made everything to be as easy as possible, but in doing so we taught some bad approaches.
