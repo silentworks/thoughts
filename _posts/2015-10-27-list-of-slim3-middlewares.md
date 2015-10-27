@@ -16,29 +16,29 @@ Before I continue, do note that most PSR7 middlewares should work with [Slim 3][
 
 Mika Tuupola's Basic Auth has been around since [Slim 2][] and now have a new 2.x branch for [Slim 3][], this library includes different authenticator stores (array, db or create your own) out of the box. 
 
-https://github.com/tuupola/slim-basic-auth
+[https://github.com/tuupola/slim-basic-auth](https://github.com/tuupola/slim-basic-auth)
 
 Mika Tuupola's JSON Web Token Authentication has also been around since [Slim 2][] and now have a new 2.x branch for [Slim 3][].
 
-https://github.com/tuupola/slim-jwt-auth
+[https://github.com/tuupola/slim-jwt-auth](https://github.com/tuupola/slim-jwt-auth)
 
 #### Content Negotiation
 
 Ryan Szrama's Negotiation middleware for [Slim 3][], which makes use of Will Durand [Negotiation][] library. 
 
-https://github.com/rszrama/negotiation-middleware
+[https://github.com/rszrama/negotiation-middleware](https://github.com/rszrama/negotiation-middleware)
 
 #### Http Cache
 
 There is a HTTP Cache middleware that was created by the Slim Team.
 
-https://github.com/slimphp/Slim-HttpCache
+[https://github.com/slimphp/Slim-HttpCache](https://github.com/slimphp/Slim-HttpCache)
 
 #### CSRF
 
 Another one from the Slim Team is the CSRF middleware.
 
-https://github.com/slimphp/Slim-Csrf
+[https://github.com/slimphp/Slim-Csrf](https://github.com/slimphp/Slim-Csrf)
 
 If you know of any other middleware not listed here that you would like to be listed, please leave a comment below with a link to the repository. Please note that I am only listing middlewares here, not service providers that you can add into [Slim 3][], hence why I didn't list the [Twig-View][] and others.
 
