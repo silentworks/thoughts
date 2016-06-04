@@ -20,6 +20,8 @@ Here is the solution I went with after getting [help from Rich Harris][solution]
 
 <a class="jsbin-embed" href="http://jsbin.com/lakawiv/3/embed?js,output">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.35.13"></script>
 
+The difference between this code and previous code is that I am now adding attributes dynamically. These attributes are being added from a _safe list_ object with keys and values mapped. If we needed to make this work in user land code, all we would have to do is expose the _safe list_ to user land and we could add new attributes to look out for now.
+
 [RactiveJS]: http://www.ractivejs.org/
 [Rich Harris]: https://twitter.com/Rich_Harris
 [solution]: https://twitter.com/Rich_Harris/status/739123210596298753
