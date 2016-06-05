@@ -3,7 +3,7 @@ published: true
 layout: post
 category: posts
 comments: true
-title: Passing Attributes Down With RactiveJS
+title: Passing Static Attributes Down With RactiveJS
 ---
 I really like [RactiveJS][] and how the inner workings work most of the time. I recently ran into an situation where I needed a component to behave a particular way and this was a challenge at first but with the help of [Rich Harris][] (creator of [RactiveJS][]) I was able to find a solution.
 
@@ -22,6 +22,8 @@ Here is the solution I went with after getting [help from Rich Harris][solution]
 <a class="jsbin-embed" href="http://jsbin.com/lakawiv/3/embed?js,output">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.35.13"></script>
 
 The difference between this code and previous code is that I am now adding attributes dynamically. These attributes are being added from a _safe list_ object with keys and values mapped. If we needed to make this work in user land code, all we would have to do is expose the _safe list_ to user land and we could add new attributes easily.
+
+Note that you should only use this setup with static attributes since there is no guarantee the template wouldn't have been parsed already.
 
 [RactiveJS]: http://www.ractivejs.org/
 [Rich Harris]: https://twitter.com/Rich_Harris
