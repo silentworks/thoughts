@@ -1,9 +1,7 @@
-markdown: rdiscount
-pygments: true
+markdown: kramdown
+rouge: true
 permalink: /:title
 auto: true
-rdiscount:
-  extensions: [smart]
 
 name: Thoughts and Patterns of a Developer
 url: http://thoughts.silentworks.co.uk
